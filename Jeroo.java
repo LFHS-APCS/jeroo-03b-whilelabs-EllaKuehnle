@@ -49,7 +49,6 @@ public class Jeroo extends JerooBase {
         }
         // Step 1:  At the end of the while loop, what should be true?
         
-    }
 
     /** 
      * Using a while loop, make the Jeroo faces north no matter what.
@@ -85,7 +84,23 @@ public class Jeroo extends JerooBase {
      * The Jeroo should stop as soon as there is a net in front of it.       
      */
     public void meander() {
-
+      pick();
+      while (!isNet(AHEAD)) {
+        if (isFlower(AHEAD)) {
+          hop();
+          pick();
+        }
+        if (isFlower(RIGHT)) {
+          turn(RIGHT);
+          hop();
+          pick();
+        }
+        if (isFlower(LEFT)) {
+          turn(LEFT);
+          hop();
+          pick();
+        }
+      }
     }
 
     // Do NOT touch the code below here
